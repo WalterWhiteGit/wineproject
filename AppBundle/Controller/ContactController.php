@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: samy
+ * User: sammy
  * Date: 28/10/2017
- * Time: 23:51
  */
 
 namespace AppBundle\Controller;
