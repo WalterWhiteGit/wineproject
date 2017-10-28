@@ -19,11 +19,32 @@ class ContactController extends Controller
      * @Route("/contact", name="contact.contact")
      */
 
+    
+    public function contactAction(Request $request){
 
-    public function contactAction(){
+
+    // Instance Doctrine
+    $doctrine =$this->getDoctrine();
+
+    $em = $doctrine->getManager() ;
+
+    // Select Entity
+    $entity = new Contact();
+
+    $entityType = ContactType::class;
+
+
+    // Create Form
+
+    $form = $this->createForm($entityType,$entity);
+
+    $form->handleRequest($request);
+
+    $createForm =$form->createView();
 
 
 
-        return $this->render('contact/contact.html.twig');
+    // Return view
+        return $this->render('contact/contact.html.twig',['form'=>$createForm]);
     }
 }
