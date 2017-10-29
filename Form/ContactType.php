@@ -26,15 +26,17 @@ class ContactType extends AbstractType
         
         $builder->add('object',ChoiceType::class,[
 
-            'choices'=>[
-                        'Informations'=>'INF',
-                        'Réservations'=>'RES',
-                        'Réclamations'=>'REC'
-                       ],
-            'choices_as_values'=>true,'multiple'=>false,'expanded'=>true
-
-
-        ])
+                        'choices'=>[
+                                    'Informations'=>'INF',
+                                    'Réservations'=>'RES',
+                                    'Réclamations'=>'REC'
+                                    ],
+                        'choices_as_values'=>true,
+                        'multiple'=>false,
+                        'expanded'=>true
+                    ])
+             
+            
 // Firstname Field
             
                 ->add('firstname',TextType::class,
