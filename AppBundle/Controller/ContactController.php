@@ -55,6 +55,11 @@ class ContactController extends Controller
 
     // Send to BDD
             $em->flush();
+            
+    //message flash
+            $message = "Votre message a bien été transmis";
+            
+            $this->addFlash('notice',$message);
 
     // Redirect to homepage
             return $this->redirectToRoute('homepage.accueil');
