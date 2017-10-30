@@ -45,8 +45,22 @@ class ContactController extends Controller
 
     $createForm =$form->createView();
 
+     // Submit form
 
+        if ($form->isSubmitted() && $form->isValid() ){
 
+            $data= $form->getData();
+
+            $em->persist($data);
+
+    // Send to BDD
+            $em->flush();
+
+    // Redirect to homepage
+            return $this->redirectToRoute('homepage.accueil');
+        }
+    
+        
     // Return view
         return $this->render('contact/contact.html.twig',['form'=>$createForm]);
     }
