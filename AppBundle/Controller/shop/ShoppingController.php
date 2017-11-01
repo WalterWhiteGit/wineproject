@@ -8,8 +8,6 @@
 
 namespace AppBundle\Controller\shop;
 
-
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -22,10 +20,15 @@ class ShoppingController extends Controller
      *
      */
 
+   public function shoppingController(){
 
-    public function shoppingController(){
+        $doctrine = $this->getDoctrine();
+
+        $result = $doctrine->getRepository(Products::class)->selectAll();
 
 
-        return $this->render('shop/shopping.html.twig');
+        //exit(dump($result));
+
+        return $this->render(':Shop:shopping.html.twig',['results'=>$result]);
     }
 }
